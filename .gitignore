@@ -1,0 +1,4 @@
+_exported_templates/
+_site/
+api/*.yml
+api/.manifest
