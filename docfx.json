@@ -45,6 +45,12 @@
       "_appLogoPath": "images/xabbo-skull-128.png",
       "_enableSearch": true,
       "pdf": false
+    },
+    "markdownEngineProperties": {
+      "markdigExtensions": [
+        "Abbreviations",
+        "Footnotes"
+      ]
     }
   }
 }
