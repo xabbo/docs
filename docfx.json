@@ -36,11 +36,13 @@
     "output": "_site",
     "template": [
       "default",
-      "modern"
+      "modern",
+      "templates/xabbo"
     ],
     "globalMetadata": {
       "_appName": "xabbo",
       "_appTitle": "xabbo",
+      "_appLogoPath": "images/xabbo-skull-128.png",
       "_enableSearch": true,
       "pdf": false
     }
