@@ -3,9 +3,12 @@
     {
       "src": [
         {
-          "src": "../src",
+          "src": "src/",
           "files": [
-            "**/*.csproj"
+            "common/src/Xabbo.Common/Xabbo.Common.csproj",
+            "gearth/src/Xabbo.GEarth/Xabbo.GEarth.csproj",
+            "messages/src/Xabbo.Messages/Xabbo.Messages.csproj",
+            "core/src/Xabbo.Core/Xabbo.Core.csproj"
           ]
         }
       ],
