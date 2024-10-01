@@ -10,4 +10,4 @@ dotnet add package Xabbo.GEarth
 dotnet add package Xabbo.Core --prerelease
 ```
 
-See the [introduction](/docs/introduction.md) for an overview on each of the libraries.
+See the [introduction](~/docs/introduction.md) for an overview on each of the libraries.
