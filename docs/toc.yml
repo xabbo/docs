@@ -25,12 +25,14 @@
           href: how-to/basic/create-extension.md
         - name: Handle extension events
           href: how-to/basic/extension-events.md
-        - name: Send packets
-          href: how-to/basic/send-packets.md
-        - name: Intercept packets
-          href: how-to/basic/intercept-packets.md
-        - name: Block packets
-          href: how-to/basic/block-packets.md
+        - name: Packets
+          items:
+          - name: Send packets
+            href: how-to/basic/packets/send-packets.md
+          - name: Intercept packets
+            href: how-to/basic/packets/intercept-packets.md
+          - name: Block packets
+            href: how-to/basic/packets/block-packets.md
 - name: In-depth
   items:
     - href: in-depth/extension-types.md
