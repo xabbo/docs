@@ -2,6 +2,19 @@
   href: introduction.md
 - name: Getting Started
   href: getting-started.md
+- name: Tutorial
+  href: tutorial/index.md
+  items:
+    - href: tutorial/1-create-project.md
+    - href: tutorial/2-add-xabbo-gearth.md
+    - href: tutorial/3-connect-gearth.md
+    - href: tutorial/4-add-extension-info.md
+    - href: tutorial/5-add-event-handlers.md
+    - href: tutorial/6-sending-packets.md
+    - href: tutorial/7-using-identifiers.md
+    - href: tutorial/8-intercepting-packets.md
+    - href: tutorial/9-blocking-packets.md
+    - href: tutorial/10-modifying-packets.md
 - name: How to
   items:
     - name: Basic
