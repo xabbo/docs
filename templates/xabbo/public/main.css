@@ -1,3 +1,83 @@
 a {
   text-decoration: none;
 }
+
+/* Landing */
+
+.landing-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  user-select: none;
+}
+
+.landing-logo {
+  margin: 0;
+  width: 128px;
+  height: 128px;
+  opacity: 0;
+  animation-name: fade-scale-in;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+
+.landing-title {
+  font-size: 2.5em;
+  opacity: 0;
+  animation-name: fade-in;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-delay: 1s;
+}
+
+.landing-text {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  gap: 0.2em;
+}
+
+.landing-text > * {
+  margin: 0;
+}
+
+.cascade-in > * {
+  animation-name: fade-in-up;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  opacity: 0;
+}
+
+.cascade-in :nth-child(1) { animation-delay: 1.5s; }
+.cascade-in :nth-child(2) { animation-delay: 1.75s; }
+.cascade-in :nth-child(3) { animation-delay: 2.0s; }
+
+@keyframes fade-scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+  100% {
+    opacity: 1;
+  }
+}

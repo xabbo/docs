@@ -2,16 +2,20 @@
 _layout: landing
 ---
 
-<div class="h-100 d-flex flex-column align-items-center justify-content-center text-center gap-2">
+<div class="landing-container">
 
-<img src="images/xabbo-skull-128.png" width="128">
+<img class="landing-logo" src="images/xabbo-skull-128.png" draggable="false">
 
-<h1>xabbo</h1>
+<h1 class="landing-title">xabbo</h1>
+
+<div class="landing-text cascade-in">
 
 xabbo is a collection of tools, libraries and extensions for Habbo.
 
-Check out our [GitHub](https://github.com/xabbo) page to see the various projects.
+Check out the [GitHub](https://github.com/xabbo) page to see the various projects.
 
-See the [docs](~/docs/introduction.md) for documentation on the [G-Earth](https://github.com/sirjonasxx/G-Earth) extension library.
+See the [docs](~/docs/introduction.md) for documentation on the C# [G-Earth](https://github.com/sirjonasxx/G-Earth) extension library.
+
+</div>
 
 </div>
