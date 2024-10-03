@@ -18,6 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           submodules: true
 
       - name: Dotnet Setup
@@ -32,7 +33,7 @@ jobs:
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.XABBO_CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ vars.XABBO_CLOUDFLARE_ACCOUNT_ID }}
+          accountId: ${{ secrets.XABBO_CLOUDFLARE_ACCOUNT_ID }}
           projectName: xabbo
           directory: _site
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
