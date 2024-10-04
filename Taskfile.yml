@@ -1,0 +1,16 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  clean:
+    cmds:
+      - rm -r ./_site
+  build:processor:
+    cmds:
+      - dotnet build -c Release src/Xabbo.Docs -o templates/xabbo/plugins
+  build:
+    deps: [build:processor]
+    cmds:
+      - docfx docfx.json
+

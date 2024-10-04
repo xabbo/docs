@@ -1,0 +1,15 @@
+{
+  "domain": "xabbo.b7c.io",
+  "modules": [
+    {
+      "name": "goearth",
+      "importPath": "goearth",
+      "repositoryUrl": "https://github.com/xabbo/goearth"
+    },
+    {
+      "name": "nx",
+      "importPath": "nx",
+      "repositoryUrl": "https://github.com/xabbo/nx"
+    }
+  ]
+}

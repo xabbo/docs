@@ -23,9 +23,11 @@
         ],
         "exclude": [
           "_site/**",
-          "lib/**"
+          "lib/**",
+          "Taskfile.yml"
         ]
-      }
+      },
+      { "files": "go.mods.json" }
     ],
     "resource": [
       {
