@@ -17,7 +17,7 @@ var ext = new GEarthExtension();
 // ** Sending packets by identifier. **
 
 // <send-by-identifier-implicit>
-ext.Send((ClientType.Shockwave, Direction.Out, "MOVE"), 3, 4);
+ext.Send((ClientType.Shockwave, Direction.Out, "MOVE"), (short)3, (short)4);
 // </send-by-identifier-implicit>
 
 // <send-by-identifier>

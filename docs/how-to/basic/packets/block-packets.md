@@ -6,16 +6,6 @@
 
 # [Derived](#tab/derived)
 
-```csharp
-[Extension]
-partial class MyExtension : GEarthExtension
-{
-    [InterceptOut("MoveAvatar")]
-    void HandleMoveAvatar(Intercept e)
-    {
-        // Block the packet.
-        e.Block();
-    }
-}
-```
+[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=block-packets)]
+
 ---

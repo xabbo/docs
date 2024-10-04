@@ -32,46 +32,15 @@ With the `Xabbo.Messages` package.
 
 Without the `Xabbo.Messages` package.
 
-```csharp
-[Extension]
-partial class MyExtension : GEarthExtension
-{
-    void HowToSendPacketsByIdentifier()
-    {
-        Send((ClientType.Flash, Direction.Out, "MoveAvatar"), 3, 4);
-        // - or -
-        Send((ClientType.Shockwave, Direction.Out, "MOVE"), (short)3, (short)4);
-    }
-}
-```
+[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=send-by-identifier-implicit)]
+
+[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=send-by-identifier-implicit-shockwave)]
 
 With the `Xabbo.Messages` package.
 
-```csharp
-using Xabbo.Messages.Flash;
-// ...
-[Extension]
-partial class MyExtension : GEarthExtension
-{
-    void HowToSendPacketsByIdentifier()
-    {
-        Send(Out.MoveAvatar, 3, 4);
-    }
-}
-```
+[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=send-by-identifier)]
 
-```csharp
-using Xabbo.Messages.Shockwave;
-// ...
-[Extension]
-partial class MyExtension : GEarthExtension
-{
-    void HowToSendPacketsByIdentifier()
-    {
-        Send(Out.MOVE, (short)3, (short)4);
-    }
-}
-```
+[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=send-by-identifier-shockwave)]
 
 ---
 
@@ -91,15 +60,6 @@ The use-case for this is limited, but it is possible to send packets with an exp
 
 # [Derived](#tab/derived)
 
-```csharp
-[Extension]
-partial class MyExtension : GEarthExtension
-{
-    void HowToSendPacketsByHeader()
-    {
-        Send((Direction.Out, 123), "Packet contents");
-    }
-}
-```
+[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=send-header)]
 
 ---
