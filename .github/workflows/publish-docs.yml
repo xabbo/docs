@@ -25,9 +25,15 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.x
-  
-      - run: dotnet tool update -g docfx
-      - run: docfx docfx.json
+
+      - name: Build document processor plugin
+        run: dotnet build src/Xabbo.Docs -o templates/xabbo/plugins
+
+      - name: Install DocFX
+        run: dotnet tool update -g docfx
+
+      - name: Build site
+        run: docfx docfx.json
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
