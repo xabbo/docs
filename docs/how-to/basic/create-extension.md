@@ -10,16 +10,16 @@ dotnet add package Xabbo.GEarth
 
 in `Program.cs`
 
-[!code-xml[](~/src/examples/create-extension/minimal/Program.cs)]
+[!code-csharp[](~/src/examples/create-extension/minimal/Program.cs)]
 
 # [Derived](#tab/derived)
 
 in `MyExtension.cs`:
 
-[!code-xml[](~/src/examples/create-extension/inherited/MyExtension.cs)]
+[!code-csharp[](~/src/examples/create-extension/inherited/MyExtension.cs)]
 
 in `Program.cs`:
 
-[!code-xml[](~/src/examples/create-extension/inherited/Program.cs)]
+[!code-csharp[](~/src/examples/create-extension/inherited/Program.cs)]
 
 ---
