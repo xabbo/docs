@@ -46,6 +46,7 @@
       "_appName": "xabbo",
       "_appTitle": "xabbo",
       "_appLogoPath": "images/xabbo-skull-128.png",
+      "_appFaviconPath": "images/xabbo-skull-64.png",
       "_appFooter": "© xabbo 2024 - xabbo is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Oy or its Affiliates.",
       "_enableSearch": true,
       "pdf": false
