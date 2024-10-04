@@ -4,19 +4,23 @@ version: '3'
 
 tasks:
   clean:
+    desc: Remove the generated _site folder
     cmds:
       - rm -r ./_site
   build:processor:
     cmds:
       - dotnet build -c Release src/Xabbo.Docs -o templates/xabbo/plugins
   build:
+    desc: Build the site
     deps: [build:processor]
     cmds:
       - docfx build docfx.json
   serve-only:
+    desc: Serve the site without building
     cmds:
       - docfx serve _site
   serve:
+    desc: Build and serve the site
     deps: [build]
     cmds:
       - task: serve-only
