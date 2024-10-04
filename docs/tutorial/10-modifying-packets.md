@@ -46,10 +46,26 @@ ext.Intercept([In.Chat, In.Shout, In.Whisper], e => {
 
 As all three packets share the same structure, we can apply the same replacement logic.
 
-What if we wanted to read the string and apply a transformation, then replace it? For example, to change chat messages to uppercase. We could save the position of the packet, read the string, transform it, revert the packet's position back to the start of the string and then replace it. However, xabbo provides a method that does this. By using `Modify`, we can pass in a modifier function to read, transform and replace a value in-place. Change your intercept to the following:
+What if we wanted to read the string and apply a transformation, then replace it? For example, to change chat messages to uppercase. We could save the position of the packet, read the string, transform it, revert the packet's position back to the start of the string and then replace it. Which would look like this:
 
 ```csharp
-// Intercept incoming Chat, Shout and Whisper packets.
+ext.Intercept([In.Chat, In.Shout, In.Whisper], e => {
+    // Read the avatar index.
+    e.Packet.Read<int>();
+    // Save the current packet position.
+    int start = e.Packet.Position;
+    // Read the message string.
+    string message = e.Packet.Read<string>();
+    // Restore the packet position.
+    e.Packet.Position = start;
+    // Replace a string with the uppercase message.
+    e.Packet.Replace(message.ToUpper());
+});
+```
+
+However, xabbo provides a method that does this. By using `Modify`, we can pass in a modifier function to read, transform and replace a value in-place. Change your intercept to the following:
+
+```csharp
 ext.Intercept([In.Chat, In.Shout, In.Whisper], e => {
     // Read the avatar index.
     e.Packet.Read<int>();
@@ -57,6 +73,8 @@ ext.Intercept([In.Chat, In.Shout, In.Whisper], e => {
     e.Packet.Modify((string s) => s.ToUpper());
 });
 ```
+
+Note that when you `Modify` a value, the packet's position is advanced past the value the same as if we `Read` the value.
 
 Now when you run your extension, all chat messages should be transformed to uppercase:
 
