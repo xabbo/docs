@@ -14,7 +14,7 @@ Packet information is **not** yet available, so attempting to send a packet (by 
 
 # [Derived](#tab/derived)
 
-[!code-csharp[](~/src/examples/extension-events/inherited/MyExtension.cs?range=6-8,9-15,45)]
+[!code-csharp[](~/src/examples/extension-events/derived/MyExtension.cs?range=6-8,9-15,45)]
 
 ---
 
@@ -32,7 +32,7 @@ and the @Xabbo.Session containing the current @Xabbo.Hotel and @Xabbo.Client.
 
 # [Derived](#tab/derived)
 
-[!code-csharp[](~/src/examples/extension-events/inherited/MyExtension.cs?range=6-8,17-23,45)]
+[!code-csharp[](~/src/examples/extension-events/derived/MyExtension.cs?range=6-8,17-23,45)]
 
 ---
 
@@ -46,7 +46,7 @@ Occurs when the user clicks the green play button next to your extension in G-Ea
 
 # [Derived](#tab/derived)
 
-[!code-csharp[](~/src/examples/extension-events/inherited/MyExtension.cs?range=6-8,25-30,45)]
+[!code-csharp[](~/src/examples/extension-events/derived/MyExtension.cs?range=6-8,25-30,45)]
 
 ---
 
@@ -62,7 +62,7 @@ Accepts an @Xabbo.Intercept.
 
 # [Derived](#tab/derived)
 
-[!code-csharp[](~/src/examples/extension-events/inherited/MyExtension.cs?range=6-8,32-37,45)]
+[!code-csharp[](~/src/examples/extension-events/derived/MyExtension.cs?range=6-8,32-37,45)]
 
 ---
 
@@ -76,6 +76,6 @@ Occurs when the game disconnects.
 
 # [Derived](#tab/derived)
 
-[!code-csharp[](~/src/examples/extension-events/inherited/MyExtension.cs?range=6-8,39-44,45)]
+[!code-csharp[](~/src/examples/extension-events/derived/MyExtension.cs?range=6-8,39-44,45)]
 
 ---

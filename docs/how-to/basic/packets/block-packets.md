@@ -6,6 +6,6 @@
 
 # [Derived](#tab/derived)
 
-[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=block-packets)]
+[!code-csharp[](~/src/examples/packets/derived/MyExtension.cs?name=block-packets)]
 
 ---

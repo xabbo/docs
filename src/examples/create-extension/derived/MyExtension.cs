@@ -1,7 +1,7 @@
 using Xabbo;
 using Xabbo.GEarth;
 
-namespace Examples.CreateExtension.Inherited;
+namespace Examples.CreateExtension.Derived;
 
 // Declare the extension metadata.
 [Extension(

@@ -32,15 +32,15 @@ With the `Xabbo.Messages` package.
 
 Without the `Xabbo.Messages` package.
 
-[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=send-by-identifier-implicit)]
+[!code-csharp[](~/src/examples/packets/derived/MyExtension.cs?name=send-by-identifier-implicit)]
 
-[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=send-by-identifier-implicit-shockwave)]
+[!code-csharp[](~/src/examples/packets/derived/MyExtension.cs?name=send-by-identifier-implicit-shockwave)]
 
 With the `Xabbo.Messages` package.
 
-[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=send-by-identifier)]
+[!code-csharp[](~/src/examples/packets/derived/MyExtension.cs?name=send-by-identifier)]
 
-[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=send-by-identifier-shockwave)]
+[!code-csharp[](~/src/examples/packets/derived/MyExtension.cs?name=send-by-identifier-shockwave)]
 
 ---
 
@@ -60,6 +60,6 @@ The use-case for this is limited, but it is possible to send packets with an exp
 
 # [Derived](#tab/derived)
 
-[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=send-header)]
+[!code-csharp[](~/src/examples/packets/derived/MyExtension.cs?name=send-header)]
 
 ---

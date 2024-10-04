@@ -16,10 +16,10 @@ in `Program.cs`
 
 in `MyExtension.cs`:
 
-[!code-csharp[](~/src/examples/create-extension/inherited/MyExtension.cs)]
+[!code-csharp[](~/src/examples/create-extension/derived/MyExtension.cs)]
 
 in `Program.cs`:
 
-[!code-csharp[](~/src/examples/create-extension/inherited/Program.cs)]
+[!code-csharp[](~/src/examples/create-extension/derived/Program.cs)]
 
 ---

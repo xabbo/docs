@@ -6,7 +6,7 @@ using Xabbo.Messages.Flash;
 using Xabbo.Messages.Shockwave;
 #endif
 
-namespace Examples.Packets.Inherited;
+namespace Examples.Packets.Derived;
 
 [Extension]
 partial class MyExtension : GEarthExtension

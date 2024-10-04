@@ -8,7 +8,7 @@
 
 # [Derived](#tab/derived)
 
-[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=intercept-single-identifier)]
+[!code-csharp[](~/src/examples/packets/derived/MyExtension.cs?name=intercept-single-identifier)]
 
 To get auto-completion we could also use the `nameof` keyword:
 ```csharp
@@ -29,6 +29,6 @@ To intercept multiple packets, place them inside a collection expression:
 
 To intercept multiple packets, pass multiple identifier names to the attribute constructor:
 
-[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=intercept-multiple-identifiers)]
+[!code-csharp[](~/src/examples/packets/derived/MyExtension.cs?name=intercept-multiple-identifiers)]
 
 ---

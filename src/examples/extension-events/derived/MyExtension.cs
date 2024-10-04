@@ -1,7 +1,7 @@
 using Xabbo;
 using Xabbo.GEarth;
 
-namespace Examples.ExtensionEvents.Inherited;
+namespace Examples.ExtensionEvents.Derived;
 
 [Extension]
 partial class MyExtension : GEarthExtension

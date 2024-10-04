@@ -11,13 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{CC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "extension-events", "extension-events", "{B423BD93-1109-4341-89C2-F2F7DFA14344}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.ExtensionEvents.Inherited", "src\examples\extension-events\inherited\Examples.ExtensionEvents.Inherited.csproj", "{5C2AB7FB-C3B5-4184-BCB5-BFA26EB95BFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.ExtensionEvents.Derived", "src\examples\extension-events\derived\Examples.ExtensionEvents.Derived.csproj", "{5C2AB7FB-C3B5-4184-BCB5-BFA26EB95BFA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.ExtensionEvents.Minimal", "src\examples\extension-events\minimal\Examples.ExtensionEvents.Minimal.csproj", "{62CB499F-0BC9-4A99-A748-85DF5D796805}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "create-extension", "create-extension", "{234468CF-5649-4590-BC6B-0B3C0D1F2CD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.CreateExtension.Inherited", "src\examples\create-extension\inherited\Examples.CreateExtension.Inherited.csproj", "{33837944-85F6-423A-A9EA-53AA92D3DC02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.CreateExtension.Derived", "src\examples\create-extension\derived\Examples.CreateExtension.Derived.csproj", "{33837944-85F6-423A-A9EA-53AA92D3DC02}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.CreateExtension.Minimal", "src\examples\create-extension\minimal\Examples.CreateExtension.Minimal.csproj", "{782162AE-F4A8-4107-9D67-D857E2FC76F2}"
 EndProject
@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packets", "packets", "{6E7E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.Packets.Minimal", "src\examples\packets\minimal\Examples.Packets.Minimal.csproj", "{134C23D7-632F-4596-9472-A238DB7DADFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.Packets.Inherited", "src\examples\packets\inherited\Examples.Packets.Inherited.csproj", "{4652E154-6508-4D8D-96FE-24694E62E840}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.Packets.Derived", "src\examples\packets\derived\Examples.Packets.Derived.csproj", "{4652E154-6508-4D8D-96FE-24694E62E840}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.Packets.Minimal.Shockwave", "src\examples\packets\minimal-shockwave\Examples.Packets.Minimal.Shockwave.csproj", "{AF612F91-F74F-4092-A9CA-195FEFB8FA26}"
 EndProject

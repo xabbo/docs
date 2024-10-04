@@ -6,9 +6,9 @@
 
 [!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=replace-single-value)]
 
-# [Inherited](#tab/inherited)
+# [Derived](#tab/derived)
 
-[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=replace-single-value)]
+[!code-csharp[](~/src/examples/packets/derived/MyExtension.cs?name=replace-single-value)]
 
 ---
 
@@ -20,9 +20,9 @@ You can replace multiple values of different types.
 
 [!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=replace-multiple-values)]
 
-# [Inherited](#tab/inherited)
+# [Derived](#tab/derived)
 
-[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=replace-multiple-values)]
+[!code-csharp[](~/src/examples/packets/derived/MyExtension.cs?name=replace-multiple-values)]
 
 ---
 
@@ -32,8 +32,8 @@ You can replace multiple values of different types.
 
 [!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=modify-single-value)]
 
-# [Inherited](#tab/inherited)
+# [Derived](#tab/derived)
 
-[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=modify-single-value)]
+[!code-csharp[](~/src/examples/packets/derived/MyExtension.cs?name=modify-single-value)]
 
 ---
