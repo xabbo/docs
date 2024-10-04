@@ -3,7 +3,7 @@
     {
       "src": [
         {
-          "src": "src/",
+          "src": "lib/",
           "files": [
             "common/src/Xabbo.Common/Xabbo.Common.csproj",
             "gearth/src/Xabbo.GEarth/Xabbo.GEarth.csproj",
@@ -23,7 +23,7 @@
         ],
         "exclude": [
           "_site/**",
-          "src/**"
+          "lib/**"
         ]
       }
     ],

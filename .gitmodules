@@ -1,12 +1,12 @@
 [submodule "src/common"]
-	path = src/common
+	path = lib/common
 	url = https://github.com/xabbo/common
 [submodule "src/messages"]
-	path = src/messages
+	path = lib/messages
 	url = https://github.com/xabbo/messages
 [submodule "src/gearth"]
-	path = src/gearth
+	path = lib/gearth
 	url = https://github.com/xabbo/gearth
 [submodule "src/core"]
-	path = src/core
+	path = lib/core
 	url = https://github.com/xabbo/core
