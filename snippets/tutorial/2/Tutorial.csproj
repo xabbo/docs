@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Xabbo.Common" Version="1.0.1" />
     <PackageReference Include="Xabbo.GEarth" Version="1.0.0" />
   </ItemGroup>
 

@@ -6,7 +6,7 @@
   href: tutorial/index.md
   items:
     - href: tutorial/1-create-project.md
-    - href: tutorial/2-add-xabbo-gearth.md
+    - href: tutorial/2-add-xabbo-libraries.md
     - href: tutorial/3-connect-gearth.md
     - href: tutorial/4-add-extension-info.md
     - href: tutorial/5-add-event-handlers.md
