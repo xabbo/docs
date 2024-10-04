@@ -2,12 +2,7 @@
 
 # [Minimal](#tab/minimal)
 
-```csharp
-ext.Intercept(Out.MoveAvatar, e => {
-    // Block the packet.
-    e.Block();
-});
-```
+[!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=block-packets)]
 
 # [Derived](#tab/derived)
 

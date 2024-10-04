@@ -10,28 +10,11 @@ Packet information is **not** yet available, so attempting to send a packet (by 
 
 # [Minimal](#tab/minimal)
 
-```csharp
-ext.Initialized += e => {
-    Console.WriteLine($"Extension initialized.");
-    Console.WriteLine($"Is game connected: {e.IsGameConnected}.");
-};
-```
+[!code-csharp[](~/src/examples/extension-events/minimal/Program.cs?range=5-8)]
 
 # [Derived](#tab/derived)
 
-```csharp
-[Extension]
-partial class MyExtension : GEarthExtension
-{
-    protected override void OnInitialized(InitializedEventArgs e)
-    {
-        base.OnInitialized(e);
-
-        Console.WriteLine($"Extension initialized.");
-        Console.WriteLine($"Is game connected: {e.IsGameConnected}.");
-    }
-}
-```
+[!code-csharp[](~/src/examples/extension-events/inherited/MyExtension.cs?range=6-8,9-15,45)]
 
 ---
 
@@ -45,28 +28,11 @@ and the @Xabbo.Session containing the current @Xabbo.Hotel and @Xabbo.Client.
 
 # [Minimal](#tab/minimal)
 
-```csharp
-ext.Connected += e => {
-    Console.WriteLine($"Game connected.");
-    Console.WriteLine($"Is game connected: {e.IsGameConnected}.");
-};
-```
+[!code-csharp[](~/src/examples/extension-events/minimal/Program.cs#L10-L13)]
 
 # [Derived](#tab/derived)
 
-```csharp
-[Extension]
-partial class MyExtension : GEarthExtension
-{
-    protected override void OnConnected(ConnectedEventArgs e)
-    {
-        base.OnConnected(e);
-
-        Console.WriteLine($"Connected to the {e.Session.Hotel.Name} hotel via the {e.Session.Client.Type} client version {e.Session.Client.Version}.");
-        Console.WriteLine($"Was connection already established? {e.PreEstablished}");
-    }
-}
-```
+[!code-csharp[](~/src/examples/extension-events/inherited/MyExtension.cs?range=6-8,17-23,45)]
 
 ---
 
@@ -76,26 +42,11 @@ Occurs when the user clicks the green play button next to your extension in G-Ea
 
 # [Minimal](#tab/minimal)
 
-```csharp
-ext.Activated += () => {
-    Console.WriteLine("Extension activated.");
-};
-```
+[!code-csharp[](~/src/examples/extension-events/minimal/Program.cs#L15-L17)]
 
 # [Derived](#tab/derived)
 
-```csharp
-[Extension]
-partial class MyExtension : GEarthExtension
-{
-    protected override void OnActivated()
-    {
-        base.OnActivated();
-
-        Console.WriteLine("Extension activated.");
-    }
-}
-```
+[!code-csharp[](~/src/examples/extension-events/inherited/MyExtension.cs?range=6-8,25-30,45)]
 
 ---
 
@@ -107,27 +58,11 @@ Accepts an @Xabbo.Intercept.
 
 # [Minimal](#tab/minimal)
 
-```csharp
-ext.Intercepted += e => {
-    Console.WriteLine($"{e.Packet.Header.Direction} packet {e.Packet.Header.Value} intercepted");
-};
-```
+[!code-csharp[](~/src/examples/extension-events/minimal/Program.cs#L19-L21)]
 
 # [Derived](#tab/derived)
 
-```csharp
-[Extension]
-partial class MyExtension : GEarthExtension
-{
-    protected override void OnIntercepted(Intercept e)
-    {
-        base.OnIntercepted(e);
-
-        Console.WriteLine($"{e.Packet.Header.Direction} packet {e.Packet.Header.Value} intercepted");
-    }
-
-}
-```
+[!code-csharp[](~/src/examples/extension-events/inherited/MyExtension.cs?range=6-8,32-37,45)]
 
 ---
 
@@ -137,23 +72,10 @@ Occurs when the game disconnects.
 
 # [Minimal](#tab/minimal)
 
-```csharp
-ext.Disconnected += () => {
-    Console.WriteLine("Game disconnected.");
-};
-```
+[!code-csharp[](~/src/examples/extension-events/minimal/Program.cs#L23-L25)]
 
 # [Derived](#tab/derived)
 
-```csharp
-[Extension]
-partial class MyExtension : GEarthExtension
-{
-    protected override void OnDisconnected()
-    {
-        base.OnDisconnected();
+[!code-csharp[](~/src/examples/extension-events/inherited/MyExtension.cs?range=6-8,39-44,45)]
 
-        Console.WriteLine("Game disconnected.");
-    }
-}
-```
+---

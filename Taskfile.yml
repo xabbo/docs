@@ -3,6 +3,10 @@
 version: '3'
 
 tasks:
+  add-examples:
+    desc: Add all example projects to the root solution file
+    cmds:
+      - find src/examples -iname '*.csproj' -exec dotnet sln add {} \;
   clean:
     desc: Remove the generated _site folder
     cmds:

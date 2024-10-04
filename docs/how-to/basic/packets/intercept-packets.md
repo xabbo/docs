@@ -4,11 +4,7 @@
 
 # [Minimal](#tab/minimal)
 
-```csharp
-ext.Intercept(Out.MoveAvatar, e => {
-    Console.WriteLine("Intercepted MoveAvatar");
-});
-```
+[!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=intercept-single-identifier)]
 
 # [Derived](#tab/derived)
 
@@ -37,16 +33,7 @@ To get auto-completion we could also use the `nameof` keyword:
 
 To intercept multiple packets, place them inside a collection expression:
 
-```csharp
-ext.Intercept([Out.Chat, Out.Shout, Out.Whisper], e => {
-    Console.WriteLine("Intercepted Chat, Shout or Whisper");
-    // To check which one was intercepted:
-    if (e.Is(Out.Whisper))
-    {
-        Console.WriteLine("Intercepted Whisper");
-    }
-});
-```
+[!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=intercept-multiple-identifiers)]
 
 # [Derived](#tab/derived)
 

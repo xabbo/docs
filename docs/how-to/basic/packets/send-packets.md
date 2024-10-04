@@ -8,11 +8,7 @@ dotnet add package Xabbo.Messages
 
 Then add a using statement for the client you prefer to work with:
 
-```csharp
-using Xabbo.Messages.Flash;
-// - or -
-using Xabbo.Messages.Shockwave;
-```
+[!code-csharp[](~/src/examples/packets/minimal/Program.cs?range=3,5-6)]
 
 This will give you access to either the @Xabbo.Messages.Flash?text=Flash or @Xabbo.Messages.Shockwave?text=Shockwave identifiers.
 
@@ -22,27 +18,15 @@ This will give you access to either the @Xabbo.Messages.Flash?text=Flash or @Xab
 
 Without the `Xabbo.Messages` package.
 
-```csharp
-ext.Send((ClientType.Flash, Direction.Out, "MoveAvatar"), 3, 4);
-```
+[!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=send-by-identifier-implicit)]
 
-```csharp
-ext.Send((ClientType.Shockwave, Direction.Out, "MOVE"), (short)3, (short)4);
-```
+[!code-csharp[](~/src/examples/packets/minimal-shockwave/Program.cs?name=send-by-identifier-implicit)]
 
 With the `Xabbo.Messages` package.
 
-```csharp
-using Xabbo.Messages.Flash;
-// ...
-ext.Send(Out.MoveAvatar, 3, 4);
-```
+[!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=send-by-identifier)]
 
-```csharp
-using Xabbo.Messages.Shockwave;
-// ...
-ext.Send(Out.MOVE, (short)3, (short)4);
-```
+[!code-csharp[](~/src/examples/packets/minimal-shockwave/Program.cs?name=send-by-identifier)]
 
 # [Derived](#tab/derived)
 
@@ -95,13 +79,7 @@ partial class MyExtension : GEarthExtension
 
 To send packets to the client, simply specify an incoming identifier or header.
 
-```csharp
-// Sends an incoming Shout message to the client:
-ext.Send(In.Shout, 0, "Hello, world", 0, 0, 0, 0);
-
-// Sends an outgoing Shout message to the server:
-ext.Send(Out.Shout, 0, "Hello, world");
-```
+[!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=send-to-client)]
 
 ## Send packets by header
 
@@ -109,9 +87,7 @@ The use-case for this is limited, but it is possible to send packets with an exp
 
 # [Minimal](#tab/minimal)
 
-```csharp
-ext.Send((Direction.Out, 123), "Packet contents");
-```
+[!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=send-header)]
 
 # [Derived](#tab/derived)
 
