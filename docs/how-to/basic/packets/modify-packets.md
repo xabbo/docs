@@ -8,7 +8,7 @@
 
 # [Inherited](#tab/inherited)
 
-TODO
+[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=replace-single-value)]
 
 ---
 
@@ -22,7 +22,7 @@ You can replace multiple values of different types.
 
 # [Inherited](#tab/inherited)
 
-TODO
+[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=replace-multiple-values)]
 
 ---
 
@@ -34,6 +34,6 @@ TODO
 
 # [Inherited](#tab/inherited)
 
-TODO
+[!code-csharp[](~/src/examples/packets/inherited/MyExtension.cs?name=modify-single-value)]
 
 ---

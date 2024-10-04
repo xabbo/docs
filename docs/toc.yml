@@ -34,6 +34,8 @@
             href: how-to/basic/packets/intercept-packets.md
           - name: Block packets
             href: how-to/basic/packets/block-packets.md
+          - name: Modify packets
+            href: how-to/basic/packets/modify-packets.md
 - name: In-depth
   items:
     - href: in-depth/extension-types.md
