@@ -1,0 +1,39 @@
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Publish to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+
+      - name: Dotnet Setup
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.x
+  
+      - run: dotnet tool update -g docfx
+      - run: docfx docfx.json
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.XABBO_CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.XABBO_CLOUDFLARE_ACCOUNT_ID }}
+          projectName: xabbo
+          directory: _site
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
