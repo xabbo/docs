@@ -12,5 +12,11 @@ tasks:
   build:
     deps: [build:processor]
     cmds:
-      - docfx docfx.json
-
+      - docfx build docfx.json
+  serve-only:
+    cmds:
+      - docfx serve _site
+  serve:
+    deps: [build]
+    cmds:
+      - task: serve-only
