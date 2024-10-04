@@ -29,7 +29,7 @@ public class GoModulesBuildStep : IDocumentBuildStep
                     ["type"] = "GoMod",
                     ["domain"] = mods.Domain,
                     ["name"] = module.Name,
-                    ["import_path"] = module.Path,
+                    ["import_path"] = module.ImportPath,
                     ["repository_type"] = module.RepositoryType,
                     ["repository_url"] = module.RepositoryUrl,
                 };
