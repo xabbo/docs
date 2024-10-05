@@ -58,6 +58,7 @@ a {
 .cascade-in :nth-child(1) { animation-delay: 1.5s; }
 .cascade-in :nth-child(2) { animation-delay: 1.75s; }
 .cascade-in :nth-child(3) { animation-delay: 2.0s; }
+.cascade-in :nth-child(4) { animation-delay: 2.25s; }
 
 @keyframes fade-scale-in {
   0% {

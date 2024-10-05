@@ -16,6 +16,8 @@ Check out the [GitHub](https://github.com/xabbo) page to see the various project
 
 See the [docs](~/docs/introduction.md) for documentation on the C# extension API for [G-Earth](https://github.com/sirjonasxx/G-Earth).
 
+Developed and maintained by [b7](https://b7c.io)
+
 </div>
 
 </div>
