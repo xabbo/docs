@@ -3,6 +3,10 @@
 version: '3'
 
 tasks:
+  list-projects:
+    desc: List all projects in the solution
+    cmds:
+      - dotnet sln list
   add-examples:
     desc: Add all example projects to the root solution file
     cmds:
