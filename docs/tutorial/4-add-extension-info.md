@@ -19,4 +19,4 @@ ext.Run();
 
 When you run the program again, you should see the updated information in G-Earth:
 
-![G-Earth](../../images/tutorial/4-1.png)
+![G-Earth](~/images/tutorial/4-1.png)

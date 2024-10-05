@@ -3,7 +3,7 @@
 This website provides documentation for the C# xabbo libraries.
 Below is an overview of the various libraries.
 
-Head over to [Getting started](getting-started.md) to learn how to create G-Earth extensions with xabbo.
+Head over to [Getting started](~/docs/getting-started.md) to learn how to create G-Earth extensions with xabbo.
 
 ## Xabbo.Common
 

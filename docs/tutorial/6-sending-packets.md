@@ -4,7 +4,7 @@ Let's send a packet when we activate the extension in G-Earth by clicking the gr
 
 First, let's find out what packet is sent when we wave. Open the "Packet Logger" extension in G-Earth, and make sure "View outgoing" is enabled:
 
-![Packet Logger](../../images/tutorial/6-1.png)
+![Packet Logger](~/images/tutorial/6-1.png)
 
 Then, make your avatar wave. You should see a packet like the following appear in the log:
 
@@ -59,7 +59,7 @@ ext.Activated += () => {
 
 Then when you activate the extension in G-Earth, your avatar should wave:
 
-![Waving Avatar](../../images/tutorial/6-2.png)
+![Waving Avatar](~/images/tutorial/6-2.png)
 
 However, there is a problem with this method. We would need to hard-code these header values into our program, but the header values can **change depending on the client version**[^1]. Our extension would break and we would need to update our extension every time the client updates.
 

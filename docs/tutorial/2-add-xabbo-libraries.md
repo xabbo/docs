@@ -19,7 +19,7 @@ TODO
 
 This should add the references to your project file:
 
-[!code-xml[](../../snippets/tutorial/2/Tutorial.csproj?highlight=10-13)]
+[!code-xml[](~/snippets/tutorial/2/Tutorial.csproj?highlight=10-13)]
 
 > [!NOTE]
 > Make sure you have at least `Xabbo.Common` version `1.0.1` for this tutorial.

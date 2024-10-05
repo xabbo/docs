@@ -33,7 +33,7 @@ ext.Intercept(Out.MoveAvatar, e => {
 
 This will make your avatar look towards the clicked tile:
 
-![Click to turn](../../images/tutorial/9-1.gif)
+![Click to turn](~/images/tutorial/9-1.gif)
 
 Notice that the `MoveAvatar` and `LookTo` packets have the exact same structure.
 They both accept the X and Y coordinates of a tile as integers.

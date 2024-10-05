@@ -31,4 +31,4 @@ TODO
 
 Once your program is running, you should see it in G-Earth's extension list:
 
-![G-Earth](../../images/tutorial/3-1.png)
+![G-Earth](~/images/tutorial/3-1.png)

@@ -10,7 +10,7 @@ The @Xabbo.GEarth.GEarthExtension class provides various events you can subscrib
 
 Add the following event handlers that print information to the console:
 
-[!code-csharp[](../../snippets/tutorial/5/Program.cs?highlight=12-15)]
+[!code-csharp[](~/snippets/tutorial/5/Program.cs?highlight=12-15)]
 
 Now, when you run your extension you should see some output:
 
