@@ -5,15 +5,15 @@ Below is an overview of the various libraries.
 
 Head over to [Getting started](getting-started.md) to learn how to create G-Earth extensions with xabbo.
 
-## xabbo/common
+## Xabbo.Common
 
 This library contains common functionality that is shared across all of the xabbo libraries.
 
-## xabbo/gearth
+## Xabbo.GEarth
 
 This library contains the @Xabbo.GEarth.GEarthExtension implementation that interfaces with G-Earth, allowing developers to create G-Earth extensions utilizing the xabbo libraries.
 
-## xabbo/messages
+## Xabbo.Messages
 
 This library provides access to named message identifiers for different clients.
 The repository also provides a message map file, allowing xabbo to associate message names on different clients with each other.
@@ -27,7 +27,7 @@ This means that if you send or intercept the Flash @Xabbo.Messages.Flash.Out.Mov
 
 For more details on the message map format specification, see the [repository](https://github.com/xabbo/messages).
 
-## xabbo/core
+## Xabbo.Core
 
 This library contains various data structures, parsers, composers, messages, game data and game state management for xabbo based extensions.
 It provides a high-level API aimed at simplifying the creation of advanced extensions.
