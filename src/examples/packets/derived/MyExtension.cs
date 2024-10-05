@@ -33,7 +33,7 @@ partial class MyExtension : GEarthExtension
 
         // <send-to-client>
         // Sends an incoming Shout message to the client:
-        Send(In.Shout, 0, "Hello, world", 0, 0, 0, 0);
+        Send(In.Shout, -1, "Hello, world", 0, 34, 0, 0);
 
         // Sends an outgoing Shout message to the server:
         Send(Out.Shout, "Hello, world", 0);
@@ -117,4 +117,84 @@ partial class MyExtension : GEarthExtension
         );
     }
     // </modify-multiple-values>
+
+    // <receive-packet-run-task>
+    [InterceptOut("Chat", "Shout")]
+    void HandleCommand(Intercept e)
+    {
+        // Read the message sent.
+        string message = e.Packet.Read<string>();
+        // If we send the message '/whoami':
+        if (message == "/whoami")
+        {
+            // Block the chat message.
+            e.Block();
+            // Run the GetUserDataAsync task in the background.
+            Task.Run(GetUserDataAsync);
+        }
+    }
+    // </receive-packet-run-task>
+
+    // <receive-packet-task>
+    async Task GetUserDataAsync()
+    {
+        // Request the user's data.
+        Console.WriteLine("Requesting user data...");
+        Send(Out.InfoRetrieve);
+        try
+        {
+            // Asynchronously receive the first UserObject packet.
+            var packet = await ReceiveAsync(In.UserObject);
+            Console.WriteLine("Received user data.");
+            // Read the user's ID and name from the packet.
+            var (id, name) = packet.Read<Id, string>();
+            Console.WriteLine($"Your user ID is: {id}.");
+            Console.WriteLine($"Your user name is: {name}.");
+        }
+        catch (TimeoutException)
+        {
+            // If we timed out, a TimeoutException will be thrown.
+            Console.WriteLine("Request timed out.");
+        }
+    }
+    // </receive-packet-task>
+
+    // <select-tile-async>
+    async Task<(int X, int Y)> PromptForTileAsync()
+    {
+        // Show a prompt in-game.
+        Send(In.Chat, 0, "Click a tile to select its position...", 0, 34, 0, 0);
+        // Wait for the user to click a tile.
+        var p = await ReceiveAsync(
+            // The packet identifier to capture.
+            Out.MoveAvatar,
+            // Don't time out.
+            timeout: -1,
+            // Block the captured packet.
+            block: true);
+        // Read and return the coordinates of the tile that was clicked.
+        return p.Read<int, int>();
+    }
+    // </select-tile-async>
+
+    // <confirm-async>
+    async Task<bool> ConfirmAsync(string prompt)
+    {
+        // Show the prompt in-game.
+        Send(In.Chat, -1, $"{prompt} /y or /n", 0, 34, 0, 0);
+        // Wait for the user to send '/y' or '/n'.
+        var p = await ReceiveAsync(
+            // Capture outgoing Chat and Shout packets.
+            [Out.Chat, Out.Shout],
+            // Don't time out.
+            timeout: -1,
+            // Block the captured packet.
+            block: true,
+            // Only capture the packet if the user said '/y' or '/n'.
+            shouldCapture: p => p.Read<string>() is "/y" or "/n"
+        );
+        // Read the message and return true if it is '/y'.
+        return p.Read<string>() == "/y";
+    }
+    // </confirm-async>
 }

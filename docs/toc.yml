@@ -36,6 +36,8 @@
             href: how-to/basic/packets/block-packets.md
           - name: Modify packets
             href: how-to/basic/packets/modify-packets.md
+          - name: Receive packets
+            href: how-to/basic/packets/receive-packets.md
 - name: In-depth
   items:
     - href: in-depth/extension-types.md
