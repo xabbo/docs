@@ -3,10 +3,18 @@
 version: '3'
 
 tasks:
-  list-projects:
+  sln-add:
+    desc: Add a project to the solution
+    cmds:
+      - dotnet sln add {{ .CLI_ARGS | default .USER_WORKING_DIR }}
+  sln-list:
     desc: List all projects in the solution
     cmds:
       - dotnet sln list
+  sln-remove:
+    desc: Remove a project from the solution
+    cmds:
+      - dotnet sln remove {{ .CLI_ARGS | default .USER_WORKING_DIR }}
   add-examples:
     desc: Add all example projects to the root solution file
     cmds:
