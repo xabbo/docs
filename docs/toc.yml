@@ -36,6 +36,17 @@
         href: how-to/packets/modify-packets.md
       - name: Receive packets
         href: how-to/packets/receive-packets.md
+    - name: Parsers and Composers
+      href: how-to/parser-composer/index.md
+      items:
+        - name: Create a model
+          href: how-to/parser-composer/create-a-model.md
+        - name: Create a parser
+          href: how-to/parser-composer/create-a-parser.md
+        - name: Create a composer
+          href: how-to/parser-composer/create-a-composer.md
+        - name: Combine a parser and composer
+          href: how-to/parser-composer/combine-parser-composer.md
 - name: In-depth
   items:
     - href: in-depth/extension-types.md
