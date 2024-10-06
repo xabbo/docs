@@ -1,4 +1,4 @@
-# How to: Intercept packets
+# How to: Modify packets
 
 ## Replace a value
 
