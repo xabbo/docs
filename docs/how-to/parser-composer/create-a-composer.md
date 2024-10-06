@@ -26,6 +26,11 @@ room:
 
 ![Injecting a wall item into a room](~/videos/compose-wall-item.mp4)
 
+> [!WARNING]
+> You must make sure that the packet structure and its data is correctly formatted. Sending a
+> malformed packet to the client can cause it to crash with a black screen, and you will have to
+> close the game and log back in.
+
 > [!Additional info]
 > If you removed the `IComposer` interface from your class and attempted to compile the
 > above example, the xabbo analyzer would emit an error because it cannot be written to a packet:
