@@ -27,7 +27,7 @@ room:
 ![Injecting a wall item into a room](~/videos/compose-wall-item.mp4)
 
 > [!Additional info]
-> Notice that if you removed the `IComposer` interface from your class and attempted to compile the
+> If you removed the `IComposer` interface from your class and attempted to compile the
 > above example, the xabbo analyzer would emit an error because it cannot be written to a packet:
 >
 > ```txt

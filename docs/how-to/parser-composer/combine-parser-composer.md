@@ -21,3 +21,24 @@ Let's use `Modify` to change all wall items that we place into the "Jolly Roger"
 When we run the extension, any wall item we place will be modified:
 
 ![](~/videos/modify-wall-item.mp4)
+
+> [!Additional info]
+> If you removed either of the IParser<T> or IComposer implementations from your class and attempted
+> to compile the above example, the xabbo analyzer would emit an error because it cannot be read
+> from or written to a packet:
+>
+> ```txt
+> ❯ dotnet build
+> MSBuild version 17.8.5+b5265ef37 for .NET
+>   Determining projects to restore...
+>   All projects are up-to-date for restore.
+> /tmp/parser-composer/Program.cs(16,21): error XABBO013: 'Examples.ParserComposer.WallItem' is not a packet primitive or IParserComposer<T> implementation [/tmp/parser-composer/Examples.ParserComposer.csproj]
+>
+> Build FAILED.
+>
+> /tmp/parser-composer/Program.cs(16,21): error XABBO013: 'Examples.ParserComposer.WallItem' is not a packet primitive or IParserComposer<T> implementation [/tmp/parser-composer/Examples.ParserComposer.csproj]
+>     0 Warning(s)
+>     1 Error(s)
+>
+> Time Elapsed 00:00:00.75
+> ```

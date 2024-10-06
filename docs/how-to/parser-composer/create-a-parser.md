@@ -31,7 +31,7 @@ console:
 ```
 
 > [!Additional info]
-> Notice that if you removed the `IParser<T>` interface from your class and attempted to compile the
+> If you removed the `IParser<T>` interface from your class and attempted to compile the
 > above example, the xabbo analyzer would emit an error because it cannot be read from a packet:
 >
 > ```txt
