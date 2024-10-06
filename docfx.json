@@ -51,6 +51,7 @@
       "_appFaviconPath": "images/xabbo-skull-64.png",
       "_appFooter": "© xabbo 2024 - xabbo is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Oy or its Affiliates.",
       "_enableSearch": true,
+      "_disableContribution": true,
       "pdf": false
     },
     "markdownEngineProperties": {
