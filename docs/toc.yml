@@ -18,26 +18,24 @@
     - href: tutorial/11-tbc.md
 - name: How to
   items:
-    - name: Basic
+    - name: Add xabbo to your project
+      href: how-to/add-xabbo.md
+    - name: Create and run an extension
+      href: how-to/create-extension.md
+    - name: Handle extension events
+      href: how-to/extension-events.md
+    - name: Packets
       items:
-        - name: Add xabbo to your project
-          href: how-to/basic/add-xabbo.md
-        - name: Create and run an extension
-          href: how-to/basic/create-extension.md
-        - name: Handle extension events
-          href: how-to/basic/extension-events.md
-        - name: Packets
-          items:
-          - name: Send packets
-            href: how-to/basic/packets/send-packets.md
-          - name: Intercept packets
-            href: how-to/basic/packets/intercept-packets.md
-          - name: Block packets
-            href: how-to/basic/packets/block-packets.md
-          - name: Modify packets
-            href: how-to/basic/packets/modify-packets.md
-          - name: Receive packets
-            href: how-to/basic/packets/receive-packets.md
+      - name: Send packets
+        href: how-to/packets/send-packets.md
+      - name: Intercept packets
+        href: how-to/packets/intercept-packets.md
+      - name: Block packets
+        href: how-to/packets/block-packets.md
+      - name: Modify packets
+        href: how-to/packets/modify-packets.md
+      - name: Receive packets
+        href: how-to/packets/receive-packets.md
 - name: In-depth
   items:
     - href: in-depth/extension-types.md

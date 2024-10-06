@@ -33,6 +33,7 @@
       {
         "files": [
           "images/**",
+          "videos/**",
           "_headers"
         ]
       }
@@ -56,7 +57,10 @@
       "markdigExtensions": [
         "Abbreviations",
         "Footnotes"
-      ]
+      ],
+      "alerts": {
+        "Additional info": "alert alert-secondary"
+      }
     }
   }
 }
