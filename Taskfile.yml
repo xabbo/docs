@@ -31,6 +31,11 @@ tasks:
     deps: [build:processor]
     cmds:
       - docfx build docfx.json
+  rebuild:
+    desc: Rebuild the site
+    cmds:
+      - task: clean
+      - task: build
   serve-only:
     desc: Serve the site without building
     cmds:
