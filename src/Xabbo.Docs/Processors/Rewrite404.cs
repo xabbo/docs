@@ -35,8 +35,6 @@ public class Rewrite404 : IPostProcessor
         if (!EnvironmentContext.FileAbstractLayer.Exists(output.RelativePath))
             return;
 
-        Logger.LogInfo($"Rewriting URLs in {output.RelativePath}");
-
         var doc = new HtmlDocument();
 
         try
@@ -51,6 +49,8 @@ public class Rewrite404 : IPostProcessor
 
         if (RewriteUrls(new Uri($"/{output.RelativePath}"), doc.DocumentNode))
         {
+            Logger.LogInfo($"Rewriting URLs in {output.RelativePath}");
+
             try
             {
                 using var stream = EnvironmentContext.FileAbstractLayer.Create(output.RelativePath);
@@ -64,12 +64,12 @@ public class Rewrite404 : IPostProcessor
     }
 
     private static bool RewriteUrls(Uri baseUri, HtmlNode root) =>
-        RewriteUrls(baseUri, root, "a", "href") ||
-        RewriteUrls(baseUri, root, "link", "href") ||
-        RewriteUrls(baseUri, root, "script", "src") ||
-        RewriteUrls(baseUri, root, "img", "src") ||
-        RewriteUrls(baseUri, root, "meta[@name='docfx:navrel']", "content") ||
-        RewriteUrls(baseUri, root, "meta[@name='docfx:tocrel']", "content") ||
+        RewriteUrls(baseUri, root, "a", "href") |
+        RewriteUrls(baseUri, root, "link", "href") |
+        RewriteUrls(baseUri, root, "script", "src") |
+        RewriteUrls(baseUri, root, "img", "src") |
+        RewriteUrls(baseUri, root, "meta[@name='docfx:navrel']", "content") |
+        RewriteUrls(baseUri, root, "meta[@name='docfx:tocrel']", "content") |
         RewriteUrls(baseUri, root, "meta[@name='docfx:rel']", "content");
 
     private static bool RewriteUrls(
