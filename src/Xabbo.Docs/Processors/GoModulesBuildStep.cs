@@ -26,7 +26,7 @@ public class GoModulesBuildStep : IDocumentBuildStep
             foreach (var module in mods.Modules)
             {
                 outputModels.Add(CreateModel(model, mods, module));
-                foreach (string installPath in module.InstallPaths)
+                foreach (string installPath in module.Submodules)
                     outputModels.Add(CreateModel(model, mods, module, installPath));
             }
         }
@@ -38,26 +38,28 @@ public class GoModulesBuildStep : IDocumentBuildStep
 
     public void Postbuild(ImmutableList<FileModel> models, IHostService host) { }
 
-    private FileModel CreateModel(FileModel model, GoModules modules, GoModule module, string? installPath = null)
+    private static FileModel CreateModel(FileModel model, GoModules modules, GoModule module, string? submodulePath = null)
     {
         var contents = new Dictionary<string, object>() {
             ["type"] = "GoMod",
             ["domain"] = modules.Domain,
-            ["name"] = module.Name,
-            ["import_path"] = module.ImportPath,
+            ["module_name"] = module.Name,
+            ["module_path"] = module.Path,
+            ["module_import"] = modules.Domain + "/" + module.Path,
+            ["submodule_path"] = submodulePath ?? "",
             ["repository_type"] = module.RepositoryType,
             ["repository_url"] = module.RepositoryUrl,
         };
 
-        string newFileName = Path.Join(module.ImportPath, installPath) + Path.GetExtension(model.File);
-        string destPath = Path.Join(model.FileAndType.DestinationDir, newFileName);
+        string outputFilePath = Path.Join(module.Path, submodulePath) + Path.GetExtension(model.File);
+        string destinationFilePath = Path.Join(model.FileAndType.DestinationDir, outputFilePath);
 
         var localPathFromRoot = PathUtility.MakeRelativePath(
-            EnvironmentContext.BaseDirectory, destPath);
+            EnvironmentContext.BaseDirectory, destinationFilePath);
 
         var ft = new FileAndType(
             model.BaseDir,
-            newFileName,
+            outputFilePath,
             DocumentType.Article
         );
 

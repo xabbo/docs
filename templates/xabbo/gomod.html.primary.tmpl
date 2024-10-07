@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="go-import" content="{{domain}}/{{import_path}} {{repository_type}} {{repository_url}}">
+    <meta name="go-import" content="{{module_import}} {{repository_type}} {{repository_url}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="4; url={{repository_url}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,13 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="icon" href="{{_rel}}images/xabbo-skull-64.png">
     <link rel="stylesheet" href="{{_rel}}public/redirect.css">
-    <title>{{name}}</title>
+    <title>{{module_name}} | xabbo</title>
 </head>
 <body>
   <img id="skull" width="128" height="128" src="{{_rel}}images/xabbo-skull-128.png">
   <div id="text">
     <div>Redirecting you to the</div>
-    <div id="repo-name">{{name}}</div>
+    <div id="repo-name">{{module_name}}</div>
     <div>repository</div>
   </div>
 </body>

@@ -3,19 +3,20 @@
   "modules": [
     {
       "name": "goearth",
-      "importPath": "goearth",
+      "path": "goearth",
+      "submodules": ["cmd/goearth"],
       "repositoryUrl": "https://github.com/xabbo/goearth"
     },
     {
       "name": "nx",
-      "importPath": "nx",
-      "installPaths": ["cmd/nx"],
+      "path": "nx",
+      "submodules": ["cmd/nx"],
       "repositoryUrl": "https://github.com/xabbo/nx"
     },
     {
       "name": "messages",
-      "importPath": "messages",
-      "installPaths": ["cli/msgs"],
+      "path": "messages",
+      "submodules": ["cli/msgs"],
       "repositoryUrl": "https://github.com/xabbo/messages"
     }
   ]
