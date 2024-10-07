@@ -30,7 +30,7 @@ tasks:
     desc: Build the site
     deps: [build:processor]
     cmds:
-      - docfx build docfx.json
+      - docfx --verbose docfx.json
   rebuild:
     desc: Rebuild the site
     cmds:
