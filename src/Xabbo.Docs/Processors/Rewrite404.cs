@@ -49,39 +49,38 @@ public class Rewrite404 : IPostProcessor
             Logger.LogError($"Failed to load '{output.RelativePath}': {ex.Message}");
         }
 
-        RewriteUrls(new Uri($"/{output.RelativePath}"), doc.DocumentNode);
-
-        try
+        if (RewriteUrls(new Uri($"/{output.RelativePath}"), doc.DocumentNode))
         {
-            using var stream = EnvironmentContext.FileAbstractLayer.Create(output.RelativePath);
-            doc.Save(stream, Encoding.UTF8);
-        }
-        catch (Exception ex)
-        {
-            Logger.LogError($"Failed to save '{output.RelativePath}': {ex.Message}");
+            try
+            {
+                using var stream = EnvironmentContext.FileAbstractLayer.Create(output.RelativePath);
+                doc.Save(stream, Encoding.UTF8);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError($"Failed to save '{output.RelativePath}': {ex.Message}");
+            }
         }
     }
 
-    private static void RewriteUrls(Uri baseUri, HtmlNode root)
-    {
-        RewriteUrls(baseUri, root, "a", "href");
-        RewriteUrls(baseUri, root, "link", "href");
-        RewriteUrls(baseUri, root, "script", "src");
-        RewriteUrls(baseUri, root, "img", "src");
-        RewriteUrls(baseUri, root, "meta[@name='docfx:navrel']", "content");
-        RewriteUrls(baseUri, root, "meta[@name='docfx:tocrel']", "content");
+    private static bool RewriteUrls(Uri baseUri, HtmlNode root) =>
+        RewriteUrls(baseUri, root, "a", "href") ||
+        RewriteUrls(baseUri, root, "link", "href") ||
+        RewriteUrls(baseUri, root, "script", "src") ||
+        RewriteUrls(baseUri, root, "img", "src") ||
+        RewriteUrls(baseUri, root, "meta[@name='docfx:navrel']", "content") ||
+        RewriteUrls(baseUri, root, "meta[@name='docfx:tocrel']", "content") ||
         RewriteUrls(baseUri, root, "meta[@name='docfx:rel']", "content");
-    }
 
-    private static void RewriteUrls(
+    private static bool RewriteUrls(
         Uri baseUri,
         HtmlNode root,
         string elementName,
         string attributeName)
     {
-        var nodes = root.SelectNodes($"//{elementName}[@{attributeName}]");
+        bool isModified = false;
 
-        foreach (var node in nodes)
+        foreach (var node in root.SelectNodes($"//{elementName}[@{attributeName}]"))
         {
             var attr = node.Attributes[attributeName];
             if (string.IsNullOrWhiteSpace(attr.Value))
@@ -90,10 +89,13 @@ public class Rewrite404 : IPostProcessor
             string adjustedPath = MakeAbsoluteUri(baseUri, attr.Value);
             if (adjustedPath != attr.Value)
             {
+                isModified = true;
                 Logger.LogVerbose($"{baseUri.AbsolutePath}: '{attr.Value}' -> '{adjustedPath}'");
                 attr.Value = adjustedPath;
             }
         }
+
+        return isModified;
     }
 
     private static string MakeAbsoluteUri(Uri baseUri, string targetPath)

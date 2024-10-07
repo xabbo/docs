@@ -24,6 +24,7 @@
         "exclude": [
           "_site/**",
           "lib/**",
+          "src/**",
           "Taskfile.yml"
         ]
       },
@@ -57,6 +58,7 @@
     "markdownEngineProperties": {
       "markdigExtensions": [
         "Abbreviations",
+        "GridTables",
         "Footnotes"
       ],
       "alerts": {
