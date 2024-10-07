@@ -32,10 +32,16 @@ public class GoModule
     public string Name { get; set; } = "";
 
     /// <summary>
-    /// The relative path from the domain of the import path.
+    /// The relative import path from the domain.
     /// </summary>
     [JsonPropertyName("importPath")]
     public string ImportPath { get; set; } = "";
+
+    /// <summary>
+    /// Additional install paths relative from the import path.
+    /// </summary>
+    [JsonPropertyName("installPaths")]
+    public List<string> InstallPaths { get; set; } = [];
 
     /// <summary>
     /// The repository type. Defaults to 'git'.

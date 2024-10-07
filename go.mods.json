@@ -1,5 +1,5 @@
 {
-  "domain": "xabbo.b7c.io",
+  "domain": "xabbo.io",
   "modules": [
     {
       "name": "goearth",
@@ -9,11 +9,13 @@
     {
       "name": "nx",
       "importPath": "nx",
+      "installPaths": ["cmd/nx"],
       "repositoryUrl": "https://github.com/xabbo/nx"
     },
     {
       "name": "messages",
       "importPath": "messages",
+      "installPaths": ["cli/msgs"],
       "repositoryUrl": "https://github.com/xabbo/messages"
     }
   ]

@@ -25,31 +25,9 @@ public class GoModulesBuildStep : IDocumentBuildStep
 
             foreach (var module in mods.Modules)
             {
-                var contents = new Dictionary<string, object>() {
-                    ["type"] = "GoMod",
-                    ["domain"] = mods.Domain,
-                    ["name"] = module.Name,
-                    ["import_path"] = module.ImportPath,
-                    ["repository_type"] = module.RepositoryType,
-                    ["repository_url"] = module.RepositoryUrl,
-                };
-
-                string newFileName = module.Name + Path.GetExtension(model.File);
-                string destPath = Path.Join(model.FileAndType.DestinationDir, newFileName);
-
-                var localPathFromRoot = PathUtility.MakeRelativePath(
-                    EnvironmentContext.BaseDirectory, destPath);
-
-                var ft = new FileAndType(
-                    model.BaseDir,
-                    newFileName,
-                    DocumentType.Article
-                );
-
-                outputModels.Add(new FileModel(ft, contents)
-                {
-                    LocalPathFromRoot = localPathFromRoot
-                });
+                outputModels.Add(CreateModel(model, mods, module));
+                foreach (string installPath in module.InstallPaths)
+                    outputModels.Add(CreateModel(model, mods, module, installPath));
             }
         }
 
@@ -59,4 +37,33 @@ public class GoModulesBuildStep : IDocumentBuildStep
     public void Build(FileModel model, IHostService host) { }
 
     public void Postbuild(ImmutableList<FileModel> models, IHostService host) { }
+
+    private FileModel CreateModel(FileModel model, GoModules modules, GoModule module, string? installPath = null)
+    {
+        var contents = new Dictionary<string, object>() {
+            ["type"] = "GoMod",
+            ["domain"] = modules.Domain,
+            ["name"] = module.Name,
+            ["import_path"] = module.ImportPath,
+            ["repository_type"] = module.RepositoryType,
+            ["repository_url"] = module.RepositoryUrl,
+        };
+
+        string newFileName = Path.Join(module.ImportPath, installPath) + Path.GetExtension(model.File);
+        string destPath = Path.Join(model.FileAndType.DestinationDir, newFileName);
+
+        var localPathFromRoot = PathUtility.MakeRelativePath(
+            EnvironmentContext.BaseDirectory, destPath);
+
+        var ft = new FileAndType(
+            model.BaseDir,
+            newFileName,
+            DocumentType.Article
+        );
+
+        return new FileModel(ft, contents)
+        {
+            LocalPathFromRoot = localPathFromRoot
+        };
+    }
 }
