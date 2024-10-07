@@ -3,10 +3,22 @@ using Xabbo.Messages;
 
 namespace Examples.ParserComposer;
 
+/*
+ * Be careful if editing this file as all of the
+ * parser/composer articles depend on the line numbers.
+*/
+
+#if FALSE
+// For code snippets.
+public class WallItem
+public class WallItem : IParser<WallItem>
+public class WallItem : IComposer
+#endif
+
 public class WallItem : IParserComposer<WallItem>
 {
-    // Define your properties here
-    public string Id { get; set; } = "";
+    // Define properties here...
+    public Id Id { get; set; }
     public int Kind { get; set; }
     public string Location { get; set; } = "";
     public string Data { get; set; } = "";
@@ -15,17 +27,17 @@ public class WallItem : IParserComposer<WallItem>
     public Id OwnerId { get; set; }
     public string OwnerName { get; set; } = "";
 
-    // ...
-
     public static WallItem Parse(in PacketReader p)
     {
-        // Implement parser here
+        // Implement parser here...
 
         // Create a new WallItem.
         WallItem item = new();
 
-        // Read the fields from the PacketReader and set them on a new WallItem.
-        item.Id = p.ReadString();
+        // We read a string and cast it to an Id so it is in the correct type for our model.
+        item.Id = (Id)p.ReadString();
+
+        // Read the rest of the fields from the PacketReader and set them on the new WallItem.
         item.Kind = p.ReadInt();
         item.Location = p.ReadString();
         item.Data = p.ReadString();
@@ -40,8 +52,11 @@ public class WallItem : IParserComposer<WallItem>
 
     public void Compose(in PacketWriter p)
     {
-        // Implement composer here
-        p.WriteString(Id);
+        // Implement composer here...
+
+        // Write each property to the packet.
+        // We convert the Id to a string here, so it is in the correct type for the packet.
+        p.WriteString(Id.ToString());
         p.WriteInt(Kind);
         p.WriteString(Location);
         p.WriteString(Data);

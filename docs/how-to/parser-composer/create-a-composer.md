@@ -10,7 +10,7 @@ Add the `IComposer` interface and its `Compose` method implementation to your mo
 In `Compose` you have access to the `PacketWriter` that allows you to write primitive types to the
 packet. This is where you construct the packet by writing each of the values from the object.
 
-[!code-csharp[](~/src/examples/composer/WallItem.cs?range=6-7,17-31)]
+[!code-csharp[](~/src/examples/parser-composer/WallItem.cs?range=15,19-20,52-54,57-68)]
 
 ## In action
 
@@ -19,14 +19,14 @@ Now that we have created our own composer, we are able to write it to a packet.
 Let's send a new wall item to the client when we activate the extension. Add the following event
 handler to your extension:
 
-[!code-csharp[](~/src/examples/composer/Program.cs?name=snippet)]
+[!code-csharp[](~/src/examples/parser-composer/Program.cs?name=composer)]
 
 When you run the extension and activate it, you should see a Jolly Roger appear somewhere in your
 room:
 
 ![Injecting a wall item into a room](~/videos/compose-wall-item.mp4)
 
-> [!WARNING]
+> [!CAUTION]
 > You must make sure that the packet structure and its data is correctly formatted. Sending a
 > malformed packet to the client can cause it to crash with a black screen, and you will have to
 > close the game and log back in.

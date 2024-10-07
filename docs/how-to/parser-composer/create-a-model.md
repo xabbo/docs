@@ -18,7 +18,7 @@ We can see that we have several fields in the packet expression. Here is what th
 
 | Expression              | Type     | Description
 | ----------------------- | -------- | -----------
-| `{s:"2147418112"}`      | `string` | Unique identifier of the item.
+| `{s:"2147418112"}`      | `string` | Unique ID of the item.
 | `{i:4395}`              | `int`    | Furni kind (furni type ID). In this case, `4395` is the "Crazed Rorshach Inkblot".
 | `{s:":w=9,1 l=0,50 r"}` | `string` | Wall location.
 | `{s:""}`                | `string` | Item data. This could specify a poster variant or other information.
@@ -33,9 +33,12 @@ A composer must write each of these fields in their correct order and format to 
 ## Define the model
 
 Define a class with the relevant properties and types from the packet structure.
-For the `OwnerId` we are using the @Xabbo.Id type from `Xabbo.Common`. It is good
+For the `Id` and `OwnerId` we are using the @Xabbo.Id type from `Xabbo.Common`. It is good
 practice to use this type for all IDs as it adjusts for different clients.
 
-[!code-csharp[](~/src/examples/parser/WallItem.cs?range=7,11-19,41)]
+[!code-csharp[](~/src/examples/parser-composer/WallItem.cs?range=13,19,21-28,68)]
+
+> [!NOTE]
+> Although the the item ID in the packet is a `string`, we have defined it in our model with the type `Id`. This makes the model easier to with as it is a numeric type, and also makes it consistent with `OwnerId`. We will handle converting the `Id` to/from a `string` in our parser/composer implementation.
 
 Using this model as a base, we can continue on to [creating a parser](create-a-parser.md) or [composer](create-a-composer.md).

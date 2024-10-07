@@ -9,14 +9,14 @@ After following the previous guides on [how to create a parser](create-a-parser.
 Add the `IParserComposer<WallItem>` interface and place both of the `Parse` and `Compose` methods
 in your class:
 
-[!code-csharp[](~/src/examples/parser-composer/WallItem.cs?range=6-8,19-22,39-43,52-53)]
+[!code-csharp[](~/src/examples/parser-composer/WallItem.cs?range=18-20,29-32,51-55,67-68)]
 
 This allows us to read *and* write the object from/to a packet, and opens up the possibility of
 using `Replace` and `Modify`.
 
 Let's use `Modify` to change all wall items that we place into the "Jolly Roger" poster client-side.
 
-[!code-csharp[](~/src/examples/parser-composer/Program.cs?name=snippet)]
+[!code-csharp[](~/src/examples/parser-composer/Program.cs?name=parser-composer)]
 
 When we run the extension, any wall item we place will be modified:
 

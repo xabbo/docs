@@ -6,11 +6,35 @@ using Examples.ParserComposer;
 
 var ext = new GEarthExtension(new GEarthOptions {
     Name = "How to",
-    Description = "combine parser and composer",
+    Description = "create a parser and composer",
     Author = "xabbo"
 });
 
-// <snippet>
+// <composer>
+ext.Activated += () => {
+    // Create a new WallItem.
+    var item = new WallItem
+    {
+        Id = 1,
+        Kind = 4001,
+        Data = "501",
+        Location = ":w=10,10 l=0,0 r",
+        OwnerId = 1,
+        OwnerName = "xabbo"
+    };
+    // Send the WallItem to the client.
+    ext.Send(In.ItemAdd, item);
+};
+// </composer>
+
+// <parser>
+ext.Intercept(In.ItemAdd, e => {
+    var item = e.Packet.Read<WallItem>();
+    Console.WriteLine($"{item.OwnerName} placed a wall item with ID {item.Id} of kind {item.Kind} at {item.Location}");
+});
+// </parser>
+
+// <parser-composer>
 ext.Intercept(In.ItemAdd, e => {
     // Modify a WallItem
     e.Packet.Modify<WallItem>(item => {
@@ -22,6 +46,6 @@ ext.Intercept(In.ItemAdd, e => {
         return item;
     });
 });
-// </snippet>
+// </parser-composer>
 
 ext.Run();

@@ -10,14 +10,14 @@ Add the `IParser<T>` interface and its `Parse` method implementation to your mod
 In `Parse` you have access to the `PacketReader` that allows you to read primitive types from the
 packet. This is where you read each value, apply them to an object and return the result.
 
-[!code-csharp[](~/src/examples/parser/WallItem.cs?range=10-11,21-41)]
+[!code-csharp[](~/src/examples/parser-composer/WallItem.cs?range=14,19-20,29-31,34-51,68)]
 
 ## In action
 
 Now that we have created our own parser, we are able to read it from a packet.
 Let's intercept the `ItemAdd` packet and print to the console whenever someone places a wall item:
 
-[!code-csharp[](~/src/examples/parser/Program.cs?name=snippet)]
+[!code-csharp[](~/src/examples/parser-composer/Program.cs?name=parser)]
 
 When you run the extension and place some wall items, you should see the information printed to the
 console:
