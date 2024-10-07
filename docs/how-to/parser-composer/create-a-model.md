@@ -28,7 +28,8 @@ We can see that we have several fields in the packet expression. Here is what th
 | `{s:"xabbo"}`           | `string` | Owner name.
 
 A parser should read each of these fields and store them into the properties of an object.\
-A composer must write each of these fields in their correct order and format to construct a valid packet.
+A composer must write each of these fields in their correct order and format to construct a valid
+packet.
 
 ## Define the model
 
@@ -39,6 +40,10 @@ practice to use this type for all IDs as it adjusts for different clients.
 [!code-csharp[](~/src/examples/parser-composer/WallItem.cs?range=13,19,21-28,68)]
 
 > [!NOTE]
-> Although the the item ID in the packet is a `string`, we have defined it in our model with the type `Id`. This makes the model easier to with as it is a numeric type, and also makes it consistent with `OwnerId`. We will handle converting the `Id` to/from a `string` in our parser/composer implementation.
+> Although the the item ID in the packet is a `string`, we have defined it in our model with the
+> type `Id`. This makes the model easier to work with as it is a numeric type, and also makes it
+> consistent with `OwnerId`. We will handle converting the `Id` to/from a `string` in our
+> parser/composer implementation.
 
-Using this model as a base, we can continue on to [creating a parser](create-a-parser.md) or [composer](create-a-composer.md).
+Using this model as a base, we can continue on to [creating a parser](create-a-parser.md) or
+[composer](create-a-composer.md).

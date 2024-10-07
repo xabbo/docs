@@ -1,6 +1,7 @@
 # 2. Add xabbo libraries
 
-To create the most basic extension, all you need to do is add the `Xabbo.Common` and `Xabbo.GEarth` packages to your project.
+To create the most basic extension, all you need to do is add the `Xabbo.Common` and `Xabbo.GEarth`
+packages to your project.
 
 # [.NET CLI](#tab/cli)
 

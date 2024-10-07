@@ -6,7 +6,8 @@ Occurs when your extension is initialized by G-Earth.
 
 Accepts an @Xabbo.InitializedEventArgs.
 
-Packet information is **not** yet available, so attempting to send a packet (by identifier) here will fail.
+Packet information is **not** yet available, so attempting to send a packet (by identifier) here
+will fail.
 
 # [Minimal](#tab/minimal)
 

@@ -1,6 +1,7 @@
 # How to: Send packets
 
-Make sure you have added the `Xabbo.Messages` package to get access to named message identifiers e.g. `Out.Chat`. To add the package to your project:
+Make sure you have added the `Xabbo.Messages` package to get access to named message identifiers
+e.g. `Out.Chat`. To add the package to your project:
 
 ```
 dotnet add package Xabbo.Messages
@@ -10,7 +11,8 @@ Then add a using statement for the client you prefer to work with:
 
 [!code-csharp[](~/src/examples/packets/minimal/Program.cs?range=3,5-6)]
 
-This will give you access to either the @Xabbo.Messages.Flash?text=Flash or @Xabbo.Messages.Shockwave?text=Shockwave identifiers.
+This will give you access to either the @Xabbo.Messages.Flash?text=Flash or
+@Xabbo.Messages.Shockwave?text=Shockwave identifiers.
 
 ## Send packets by identifier
 

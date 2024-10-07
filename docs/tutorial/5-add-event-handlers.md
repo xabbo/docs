@@ -19,7 +19,8 @@ Extension initialized.
 Game connected. Session { Hotel = US, Client = Client { Type = Flash, Identifier = FLASH20, Version = WIN63-202408051224-787955622 } }
 ```
 
-Clicking the green play button in G-Earth raises the @Xabbo.GEarth.GEarthExtension.Activated event, which outputs:
+Clicking the green play button in G-Earth raises the @Xabbo.GEarth.GEarthExtension.Activated event,
+which outputs:
 
 ```txt
 Hello, from G-Earth!

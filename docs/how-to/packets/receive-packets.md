@@ -1,12 +1,14 @@
 # How to: Receive packets
 
-The @Xabbo.InterceptorExtensions.ReceiveAsync(Xabbo.Interceptor.IInterceptor,System.ReadOnlySpan{Xabbo.Messages.Identifier},System.Nullable{System.Int32},System.Boolean,System.Func{Xabbo.Messages.IPacket,System.Boolean},System.Threading.CancellationToken)?text=ReceiveAsync method allows you to receive packets inline in an asynchronous method.
-For example, we could send a packet to request the user's data, wait to receive
-the response packet, and then do something with that packet.
+The @Xabbo.InterceptorExtensions.ReceiveAsync(Xabbo.Interceptor.IInterceptor,System.ReadOnlySpan{Xabbo.Messages.Identifier},System.Nullable{System.Int32},System.Boolean,System.Func{Xabbo.Messages.IPacket,System.Boolean},System.Threading.CancellationToken)?text=ReceiveAsync
+method allows you to receive packets inline in an asynchronous method. For example, we could send a
+packet to request the user's data, wait to receive the response packet, and then do something with
+that packet.
 
 ## Receiving a packet
 
-`ReceiveAsync` should be called from an async method. First, define an `async` method returning a `Task`:
+`ReceiveAsync` should be called from an async method. First, define an `async` method returning a
+`Task`:
 
 # [Minimal](#tab/minimal)
 
@@ -40,7 +42,8 @@ the packet should be captured, and/or a cancellation token that can be used to c
 
 ## Capturing outgoing packets
 
-It is also possible to use `ReceiveAsync` to *receive* outgoing packets. Simply specify an outgoing identifier instead of an incoming one.
+It is also possible to use `ReceiveAsync` to *receive* outgoing packets. Simply specify an outgoing
+identifier instead of an incoming one.
 
 ## Example usage
 
@@ -83,4 +86,8 @@ You can reuse the method with different prompts:
 [!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=confirm-async-caller)]
 
 > [!CAUTION]
-> If you try to get the received packet using methods such as `ReceiveAsync(...).Result` or `ReceiveAsync(...).GetAwaiter().GetResult()` inside an intercept or extension event handler, you will block the extension processing loop. The receiver will never capture the response packet, and it will always time out because the extension cannot process any more packets until the receive method returns.
+> If you try to get the received packet using methods such as `ReceiveAsync(...).Result` or
+> `ReceiveAsync(...).GetAwaiter().GetResult()` inside an intercept or extension event handler, you
+> will block the extension processing loop. The receiver will never capture the response packet, and
+> it will always time out because the extension cannot process any more packets until the receive
+> method returns.

@@ -1,6 +1,7 @@
 # 4. Add extension information
 
-To add information about your extension such as its name and author, you can pass `GEarthOptions` to the `GEarthExtension` constructor:
+To add information about your extension such as its name and author, you can pass `GEarthOptions` to
+the `GEarthExtension` constructor:
 
 ```csharp
 using Xabbo.GEarth;
