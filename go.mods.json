@@ -10,6 +10,11 @@
       "name": "nx",
       "importPath": "nx",
       "repositoryUrl": "https://github.com/xabbo/nx"
+    },
+    {
+      "name": "messages",
+      "importPath": "messages",
+      "repositoryUrl": "https://github.com/xabbo/messages"
     }
   ]
 }
