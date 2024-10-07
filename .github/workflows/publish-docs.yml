@@ -36,7 +36,7 @@ jobs:
         run: dotnet tool update -g docfx
 
       - name: Build site
-        run: docfx build --verbose docfx.json
+        run: docfx docfx.json
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
