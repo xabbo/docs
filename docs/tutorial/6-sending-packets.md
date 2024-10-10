@@ -16,35 +16,20 @@ Outgoing[1336] -> [0][0][0][6][5]8[0][0][0][1]
 {out:AvatarExpression}{i:1}
 ```
 
-A packet has 3 parts - the length, header, and data. The length declares the number of bytes that
-make up the header and data. The header value defines what type of message the packet represents,
-for example, whether a user is talking, shouting, or whispering. The data contains the information
-of the message, for example, the actual contents of a chat message.
+Here is a basic explanation of this packet log:
 
-In the packet logger output, the first line has the message name, `AvatarExpression`.
+- `[AvatarExpression]` is the name of the message.
+- `Outgoing[1336]` means an outgoing header with the value `1336`. This value represents the message
+`AvatarExpression`. The following text after `->` represents the bytes of the packet as text.
+- `{out:AvatarExpression}{i:0}` represents the packet as an expression. It defines the direction
+and message name `{out:AvatarExpression}` followed by the data. In this case, we have a single
+integer (represented by `i`) with the value `0`.
 
-The second line has the direction `Outgoing` and header value `1336`, followed by a text
-representation of the entire packet, including its length, header and data. We can see the 3 parts
-of the packet:
+See the [structure of a packet](~/docs/in-depth/packet-structure.md) for an in-depth explanation of
+the packet log format, packet expressions, and the various packet data types.
 
-- `[0][0][0][6]` decodes to the integer `6`, representing the length of the header and data, and it
-is always 4 bytes in length. This means that 6 more bytes follow.
-- `[5]8` is the header value, which decodes to `1336`. It is always 2 bytes in length.
-- `[0][0][0][1]` is the packet data. We have 4 bytes here, which is the length of an integer.
-
-The third line represents the packet as a packet expression. G-Earth will attempt to guess the
-structure of the packet for us and output a packet expression such as this one. In this case,
-`{out:AvatarExpression}` represents the message direction and name, and the `{i:1}` means an integer
-value of `1` (this specifies which action to perform). This means that if we create a packet with
-the outgoing header value `1336`, write the integer `1` and send it, our avatar should wave.
-
-> [!NOTE]
-> In xabbo, a @Xabbo.Messages.Header contains a @Xabbo.Messages.Header.Direction and
-> @Xabbo.Messages.Header.Value. The @Xabbo.Messages.Packet.Length of a packet defines the length of
-> the data only, excluding the header.
->
-> On Shockwave the length field is not present, so you will only see the header and data in the
-> packet logger.
+This means that if we create a packet with the outgoing header value `1336`, write the integer `1`
+and send it, our avatar should wave.
 
 Add the following using statements to the top of your program:
 

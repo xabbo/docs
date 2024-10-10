@@ -52,3 +52,4 @@
 - name: In-depth
   items:
     - href: in-depth/extension-types.md
+    - href: in-depth/packet-structure.md
