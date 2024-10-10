@@ -47,6 +47,8 @@
           href: how-to/parser-composer/create-a-composer.md
         - name: Combine a parser and composer
           href: how-to/parser-composer/combine-parser-composer.md
+        - name: Use Xabbo.Core parsers
+          href: how-to/parser-composer/use-xabbo-core-parsers.md
 - name: In-depth
   items:
     - href: in-depth/extension-types.md
