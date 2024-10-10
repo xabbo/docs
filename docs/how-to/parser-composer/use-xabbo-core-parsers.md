@@ -1,7 +1,7 @@
 # How to: Use Xabbo.Core parsers
 
 The @Xabbo.Core library provides many parsers and composers that you can use in your extensions.
-Most of them implement @Xabbo.Messages.IParserComposer``1 and can therefore both be read from and
+Most of them implement @Xabbo.Messages.IParserComposer`1 and can therefore both be read from and
 written to packets. They are designed to work across different clients where possible.
 
 ## Examples
