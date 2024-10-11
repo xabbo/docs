@@ -85,6 +85,18 @@ ext.Intercept([Out.Chat, Out.Shout, Out.Whisper], e => {
 });
 // </intercept-multiple-identifiers>
 
+// <intercept-client>
+// Handle GetSelectedBadges sent when clicking on a user in the room.
+ext.Intercept(Out.GetSelectedBadges,
+    e => {
+        var userId = e.Packet.Read<Id>();
+        Console.WriteLine($"You clicked on a user with ID: {userId}.");
+    },
+    // Intercept on modern clients only (Flash or Unity)
+    clients: ClientType.Modern
+);
+// </intercept-client>
+
 // ** Reading from packets. **
 
 // <read-single-value>
@@ -148,7 +160,7 @@ ext.Intercept([In.Chat, In.Shout, In.Whisper], e => {
 ext.Intercept([In.Chat, In.Shout, In.Whisper], e => {
     // Skip the avatar index.
     e.Packet.Read<int>();
-    // Replace multiple values (of different types).
+    // Replace multiple values.
     e.Packet.Replace("Hello, from xabbo", 1, 13);
 });
 // </replace-multiple-values>
@@ -163,10 +175,16 @@ ext.Intercept([In.Chat, In.Shout, In.Whisper], e => {
 // </modify-single-value>
 
 // <modify-multiple-values>
-ext.Intercept(Out.MoveAvatar, e => {
+ext.Intercept([In.Chat, In.Shout], e => {
     e.Packet.Modify(
-        (int x) => x + 1,
-        (int y) => y - 1
+        // No modification.
+        (int index) => index,
+        // Uppercase messages.
+        (string message) => message.ToUpper(),
+        // Angry gesture.
+        (int gesture) => 2,
+        // Random chat bubble styles.
+        (int bubbleStyle) => Random.Shared.Next(0, 30)
     );
 });
 // </modify-multiple-values>

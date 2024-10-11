@@ -65,6 +65,18 @@ partial class MyExtension : GEarthExtension
     }
     // </intercept-multiple-identifiers>
 
+    // <intercept-client>
+    // Intercept on modern clients only (Flash or Unity)
+    [Intercept(ClientType.Modern)]
+    // Handle GetSelectedBadges sent when clicking on a user in the room.
+    [InterceptOut("GetSelectedBadges")]
+    void HandleGetSelectedBadges(Intercept e)
+    {
+        var userId = e.Packet.Read<Id>();
+        Console.WriteLine($"You clicked on a user with ID: {userId}.");
+    }
+    // </intercept-client>
+
     // <block-packets>
     [InterceptOut("MoveAvatar")]
     void BlockPackets(Intercept e)
@@ -91,7 +103,7 @@ partial class MyExtension : GEarthExtension
     {
         // Skip the avatar index.
         e.Packet.Read<int>();
-        // Replace multiple values (of different types).
+        // Replace multiple values.
         e.Packet.Replace("Hello, from xabbo", 1, 13);
     }
     // </replace-multiple-values>
