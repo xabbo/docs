@@ -1,7 +1,7 @@
 # How to: Block packets
 
-To block a packet from reaching the client or server, call @Xabbo.Messages.Intercept.Block on the
-@Xabbo.Messages.Intercept event arguments passed to the intercept handler:
+To block a packet from reaching the client or server, call `Block` on the @Xabbo.Intercept event
+arguments passed to the intercept handler:
 
 # [Minimal](#tab/minimal)
 
