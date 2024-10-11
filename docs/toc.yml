@@ -30,6 +30,8 @@
         href: how-to/packets/send-packets.md
       - name: Intercept packets
         href: how-to/packets/intercept-packets.md
+      - name: Read from packets
+        href: how-to/packets/read-packets.md
       - name: Block packets
         href: how-to/packets/block-packets.md
       - name: Modify packets

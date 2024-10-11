@@ -1,9 +1,14 @@
 ﻿using Xabbo;
+using Xabbo.Core;
 using Xabbo.GEarth;
 using Xabbo.Messages.Flash;
+
 #if FALSE
+// <using-messages>
+using Xabbo.Messages.Flash;
 // - or -
 using Xabbo.Messages.Shockwave;
+// </using-messages>
 #endif
 
 #pragma warning disable CS8321 // Local function is declared but never used
@@ -26,6 +31,17 @@ ext.Send((ClientType.Flash, Direction.Out, "MoveAvatar"), 3, 4);
 ext.Send(Out.MoveAvatar, 3, 4);
 // </send-by-identifier>
 
+// <send-multiple-values>
+ext.Send(Out.GetMarketplaceOffers, 100, 2500, "duck", 1);
+// </send-multiple-values>
+
+// <send-collection>
+// Assume we have a list of valid item IDs in our inventory:
+var itemIds = new Id[] { 1, 2, 3 };
+// We can offer all items by sending the collection:
+ext.Send(Out.AddItemsToTrade, itemIds);
+// </send-collection>
+
 // <send-to-client>
 // Sends an incoming Shout message to the client:
 ext.Send(In.Shout, -1, "Hello, world", 0, 34, 0, 0);
@@ -33,6 +49,20 @@ ext.Send(In.Shout, -1, "Hello, world", 0, 34, 0, 0);
 // Sends an outgoing Shout message to the server:
 ext.Send(Out.Shout, "Hello, world", 0);
 // </send-to-client>
+
+// <send-composer>
+// Inject a Rubber Duck furni into the room client-side.
+ext.Send(In.ObjectAdd,
+    new FloorItem
+    {
+        Id = 1000,
+        Kind = 179, // Rubber duck
+        Location = (6, 6, 0),
+        Direction = 2
+    },
+    "xabbo" // Owner name
+);
+// </send-composer>
 
 // <send-header>
 ext.Send((Direction.Out, 123), "packet data");
@@ -54,6 +84,49 @@ ext.Intercept([Out.Chat, Out.Shout, Out.Whisper], e => {
     }
 });
 // </intercept-multiple-identifiers>
+
+// ** Reading from packets. **
+
+// <read-single-value>
+ext.Intercept([Out.Chat, Out.Shout, Out.Whisper], e => {
+    string message = e.Packet.Read<string>();
+    Console.WriteLine($"You said: {message}.");
+});
+// </read-single-value>
+
+// <read-multiple-values>
+ext.Intercept(Out.MoveAvatar, e => {
+    var (x, y) = e.Packet.Read<int, int>();
+    Console.WriteLine($"You are walking to: {x}, {y}.");
+});
+// </read-multiple-values>
+
+// <read-array>
+ext.Intercept(Out.AddItemsToTrade, e => {
+    var itemIds = e.Packet.Read<Id[]>();
+    Console.WriteLine($"You are offering {itemIds.Length} items in trade.");
+    Console.WriteLine($"Item IDs are: {string.Join(", ", itemIds)}");
+});
+// </read-array>
+
+// <read-array-manual>
+ext.Intercept(Out.AddItemsToTrade, e => {
+    Length itemCount = e.Packet.Read<Length>();
+    var itemIds = new Id[itemCount];
+    for (int i = 0; i < itemCount; i++)
+    {
+        itemIds[i] = e.Packet.Read<Id>();
+    }
+});
+// </read-array-manual>
+
+// <read-parser>
+ext.Intercept(In.Users, e => {
+    var avatars = e.Packet.Read<Avatar[]>();
+    foreach (var avatar in avatars)
+        Console.WriteLine($"{avatar.Name} entered the room.");
+});
+// </read-parser>
 
 // <block-packets>
 ext.Intercept(Out.MoveAvatar, e => {
