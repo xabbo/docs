@@ -9,7 +9,7 @@ dotnet add package Xabbo.Messages
 
 Then add a using statement for the client you prefer to work with:
 
-[!code-csharp[](~/src/examples/packets/minimal/Program.cs?range=3,5-6)]
+[!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=using-messages)]
 
 This will give you access to either the @Xabbo.Messages.Flash?text=Flash or
 @Xabbo.Messages.Shockwave?text=Shockwave identifiers.
@@ -46,11 +46,31 @@ With the `Xabbo.Messages` package.
 
 ---
 
+## Send multiple values
+
+Any number of values can be specified after the header or value, as long as they are valid types
+that can be written to a packet:
+
+[!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=send-multiple-values)]
+
+## Send collections
+
+Any collection that implements @System.Collections.Generic.IEnumerable`1 can be sent, as long as
+the element type can be written to a packet:
+
+[!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=send-collection)]
+
 ## Send packets to the client
 
-To send packets to the client, simply specify an incoming identifier or header.
+To send packets to the client, simply specify an incoming identifier or header:
 
 [!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=send-to-client)]
+
+## Send composers
+
+Any class that implements @Xabbo.Messages.IComposer can be sent:
+
+[!code-csharp[](~/src/examples/packets/minimal/Program.cs?name=send-composer)]
 
 ## Send packets by header
 

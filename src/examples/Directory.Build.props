@@ -3,6 +3,6 @@
     <PackageReference Include="Xabbo.Common" Version="1.0.1" />
     <PackageReference Include="Xabbo.GEarth" Version="1.0.0" />
     <PackageReference Include="Xabbo.Messages" Version="1.0.0" />
-    <PackageReference Include="Xabbo.Core" Version="1.0.0-beta.271" />
+    <PackageReference Include="Xabbo.Core" Version="1.0.0-beta.287" />
   </ItemGroup>
 </Project>
