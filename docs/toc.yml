@@ -51,6 +51,21 @@
           href: how-to/parser-composer/combine-parser-composer.md
         - name: Use Xabbo.Core parsers
           href: how-to/parser-composer/use-xabbo-core-parsers.md
+    - name: Messages
+      href: how-to/messages/index.md
+      items:
+        - name: Send messages
+          href: how-to/messages/send-messages.md
+        - name: Intercept messages
+          href: how-to/messages/intercept-messages.md
+        - name: Block messages
+          href: how-to/messages/block-messages.md
+        - name: Modify messages
+          href: how-to/messages/modify-messages.md
+        - name: Receive messages
+          href: how-to/messages/receive-messages.md
+        - name: Use request messages
+          href: how-to/messages/request-messages.md
 - name: In-depth
   items:
     - href: in-depth/extension-types.md
