@@ -610,8 +610,8 @@ Flash and Shockwave, and as a [long](#long) on a Unity session.
 ### PacketContent
 
 The @Xabbo.PacketContent data type is specific to the Shockwave client, and was added due
-to how some packet structures on Shockwave use their entire data as a string of characters, which
-means there is no length header, nor terminator byte for incoming packets.
+to how some packet structures on Shockwave use their entire data as a single string, which means
+there is no string length header, and no string terminator byte on incoming packets.
 
 Often you will see a packet such as the following:
 
@@ -621,10 +621,10 @@ Outgoing[67] -> ACnew stuff 49848964
 ```
 
 Where `AC` is the header value `67`, and `new stuff 49848964` is the packet data. We can see that
-there is no length value at the beginning to indicate the number of characters in the string
-`"new stuff 49848964"`, as seen with other [strings](#string). This is because the entire data of
-the packet is being used as a string, so there is no need for a length header. Similarly, on an
-incoming packet, you would not see the string terminated with a `[2]` byte.
+there is no [short](#short) at the beginning to indicate the number of characters in the string
+`"new stuff 49848964"`, as there usually is with [strings](#string). This is because the entire data
+of the packet is being used as a single string, so there is no need for a length header. Similarly,
+on an incoming packet, you would not see the string terminated with a `[2]` byte.
 
 To read or write a `PacketContent`, the packet's position must be at the start of the packet, after
 which the position will be advanced to the end of the packet. Attempting to read or write a
