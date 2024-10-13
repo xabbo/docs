@@ -66,6 +66,13 @@
           href: how-to/messages/receive-messages.md
         - name: Use request messages
           href: how-to/messages/request-messages.md
+    - name: Game State
+      items:
+        - name: Room Manager
+          href: how-to/game-state/room/index.md
+          items:
+            - name: Events
+              href: how-to/game-state/room/events.md
 - name: In-depth
   items:
     - href: in-depth/extension-types.md
