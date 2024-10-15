@@ -18,12 +18,14 @@ Outgoing[1336] -> [0][0][0][6][5]8[0][0][0][1]
 
 Here is a basic explanation of this packet log:
 
-- `[AvatarExpression]` is the name of the message.
+- `[AvatarExpression]` is the name of the message. This tells the server we want our avatar to
+perform an action.
 - `Outgoing[1336]` means an outgoing header with the value `1336`. This value represents the message
-`AvatarExpression`. The following text after `->` represents the bytes of the packet as text.
+`AvatarExpression`. The following text after `->` represents the data of the packet as text.
 - `{out:AvatarExpression}{i:1}` represents the packet as an expression. It defines the direction
 and message name `{out:AvatarExpression}` followed by the data. In this case, we have a single
-integer (represented by `i`) with the value `1`.
+integer (represented by `i`) with the value `1`. This value defines which action we want to perform,
+in this case, it is the wave action.
 
 See the [structure of a packet](~/docs/in-depth/packet-structure.md) for an in-depth explanation of
 the packet log format, packet expressions, and the various packet data types.
