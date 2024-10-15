@@ -21,9 +21,9 @@ Here is a basic explanation of this packet log:
 - `[AvatarExpression]` is the name of the message.
 - `Outgoing[1336]` means an outgoing header with the value `1336`. This value represents the message
 `AvatarExpression`. The following text after `->` represents the bytes of the packet as text.
-- `{out:AvatarExpression}{i:0}` represents the packet as an expression. It defines the direction
+- `{out:AvatarExpression}{i:1}` represents the packet as an expression. It defines the direction
 and message name `{out:AvatarExpression}` followed by the data. In this case, we have a single
-integer (represented by `i`) with the value `0`.
+integer (represented by `i`) with the value `1`.
 
 See the [structure of a packet](~/docs/in-depth/packet-structure.md) for an in-depth explanation of
 the packet log format, packet expressions, and the various packet data types.
