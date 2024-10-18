@@ -497,20 +497,19 @@ The remaining 6 bits of each byte contribute to its value:
       Value
 ```
 
-The bits from the second byte are shifted onto the left of the value. We can see that the bits from
-the 2nd byte contribute to the most significant bits of the value:
+The bits from the first byte represent the most significant bits of the value:
 
 ```txt
       6 bits from
-       1st byte
+       2nd byte
         vvvvvv
   000001000110 <- Value
   ^^^^^^
 6 bits from
- 2nd byte
+ 1st byte
 ```
 
-Where the `000001` from the 2nd byte has the value of $64$ and the `000110` from the 1st byte has
+Where the `000001` from the 1st byte has the value of $64$ and the `000110` from the 2nd byte has
 the value of $6$, which when added together equals $70$.
 
 See [short](#short) for its packet representations.
